@@ -9,6 +9,11 @@ app = FastAPI(title="URL Metadata Extractor")
 logger = logging.getLogger("uvicorn.error")
 
 
+@app.get("/")
+async def health_check():
+    return {"status": "ok", "message": "Service is healthy"}
+
+
 @app.post("/extract", response_model=MetadataResponse)
 async def extract_url_metadata(request: URLRequest):
     url = str(request.url)
