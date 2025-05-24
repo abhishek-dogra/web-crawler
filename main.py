@@ -9,7 +9,7 @@ app = FastAPI(title="URL Metadata Extractor")
 logger = logging.getLogger("uvicorn.error")
 
 
-@app.get("/")
+@app.head("/")
 async def health_check():
     return {"status": "ok", "message": "Service is healthy"}
 
